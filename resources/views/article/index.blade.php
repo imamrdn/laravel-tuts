@@ -3,7 +3,6 @@
 @section('content')
     <h1> Ini halaman article</h1>
 
-    <a href="/article/create" class="btn btn-primary">+ Article</a>
     @foreach ($articles as $article)
 
         <div class="card mb-1">
