@@ -3,8 +3,9 @@
 @section('content')
     <h1>Edit Artikel</h1>
 
-    <form action="/article" method="POST">
+    <form action="/article/{{$article->id}}" method="POST">
         @csrf
+        @method('PUT')
         
         <div class="form-group">
           <label for="title">Judul</label>

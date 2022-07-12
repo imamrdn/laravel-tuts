@@ -14,3 +14,4 @@ Route::get('/article/{slug}', [ArticleController::class, "show"]);
 Route::post('/article', [ArticleController::class, "store"]);
 
 Route::get('/article/{id}/edit', [ArticleController::class, "edit"]);
+Route::put('/article/{id}', [ArticleController::class, "update"]);
