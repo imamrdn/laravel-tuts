@@ -8,4 +8,7 @@ Route::get('/', function () {
 });
 
 Route::get('/article', [ArticleController::class, "index"]);
+Route::get('/article/create', [ArticleController::class, "create"]);
 Route::get('/article/{slug}', [ArticleController::class, "show"]);
+
+Route::post('/article', [ArticleController::class, "store"]);
