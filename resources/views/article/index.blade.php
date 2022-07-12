@@ -7,9 +7,9 @@
 
         <div class="card mb-1">
             <div class="card-body">
-                <p><strong>Judul : {{ $article->title }}</strong></p>
+                <p><strong>{{ ucfirst($article->title) }}</strong></p>
                 <p>{{ $article->subject }}</p>
-                <a href="/article/{{$article->id}}/edit" class="btn btn-primary">Edit</a>
+                <a href="/article/{{$article->id}}/edit" class="btn btn-info btn-sm">Edit</a>
             </div>
         </div>
         

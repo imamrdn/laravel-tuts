@@ -32,10 +32,15 @@ class ArticleController extends Controller
             'subject' => 'required|min:10',
         ]);
 
-        $article = new Article;
-        $article->title = $request->title;
-        $article->subject = $request->subject;
-        $article->save();
+        // $article = new Article;
+        // $article->title = $request->title;
+        // $article->subject = $request->subject;
+        // $article->save();
+
+        Article::create([
+            'title' => $request->title,
+            'subject' => $request->subject,
+        ]);
 
         return redirect('/article');
     }
@@ -48,11 +53,16 @@ class ArticleController extends Controller
 
     public function update(Request $request, $id)
     {
-        $article = Article::find($id);
-        $article->title = $request->title;
-        $article->subject = $request->subject;
-        $article->save();
+        // $article = Article::find($id);
+        // $article->title = $request->title;
+        // $article->subject = $request->subject;
+        // $article->save();
 
+        Article::find($id)->update([
+            'title' => $request->title,
+            'subject' => $request->subject,
+        ]);
+        
         return redirect('/article');
     }
 }

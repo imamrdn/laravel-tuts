@@ -9,8 +9,8 @@
 </head>
 <body class="container mt-5">
     <nav>
-        <a href="/article" class="">Article</a>
-        <a href="/article/create" class="">+New</a>
+        <a href="/article" class="">/Article</a>
+        <a href="/article/create" class="">/+New</a>
     </nav>
 
 
