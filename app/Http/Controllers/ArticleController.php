@@ -13,9 +13,10 @@ class ArticleController extends Controller
         return view('article.index', compact('articles'));
     }
 
-    public function show($slug)
+    public function show($title)
     {
-        return view('article.single', compact('slug'));
+        $article = Article::where('title', $title)->first();
+        return view('article.single', compact('article'));
     }
 
     public function create()
@@ -62,7 +63,7 @@ class ArticleController extends Controller
             'title' => $request->title,
             'subject' => $request->subject,
         ]);
-        
+
         return redirect('/article');
     }
 }

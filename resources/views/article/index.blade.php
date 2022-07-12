@@ -9,6 +9,7 @@
             <div class="card-body">
                 <p><strong>{{ ucfirst($article->title) }}</strong></p>
                 <p>{{ $article->subject }}</p>
+                <a href="/article/{{$article->title}}" class="btn btn-info btn-sm">Baca</a>
                 <a href="/article/{{$article->id}}/edit" class="btn btn-info btn-sm">Edit</a>
             </div>
         </div>
