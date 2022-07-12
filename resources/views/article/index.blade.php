@@ -7,8 +7,9 @@
 
         <div class="card mb-1">
             <div class="card-body">
-                <p><strong>Judul : {{ $article['title'] }}</strong></p>
-                <p>{{ $article['subject'] }}</p>
+                <p><strong>Judul : {{ $article->title }}</strong></p>
+                <p>{{ $article->subject }}</p>
+                <a href="/article/{{$article->id}}/edit" class="btn btn-primary">Edit</a>
             </div>
         </div>
         
