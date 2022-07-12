@@ -27,6 +27,11 @@ class ArticleController extends Controller
     {
         //dd($request);
 
+        $request->validate([
+            'title' => 'required|max:255|min:3',
+            'subject' => 'required|min:10',
+        ]);
+
         $article = new Article;
         $article->title = $request->title;
         $article->subject = $request->subject;
