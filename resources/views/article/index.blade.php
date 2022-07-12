@@ -11,6 +11,13 @@
                 <p>{{ $article->subject }}</p>
                 <a href="/article/{{$article->title}}" class="btn btn-info btn-sm">Baca</a>
                 <a href="/article/{{$article->id}}/edit" class="btn btn-info btn-sm">Edit</a>
+                
+                <form action="/article/{{$article->id}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-danger btn-sm">Hapus</button>
+                </form>
+            
             </div>
         </div>
         

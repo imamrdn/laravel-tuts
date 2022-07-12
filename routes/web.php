@@ -15,3 +15,5 @@ Route::post('/article', [ArticleController::class, "store"]);
 
 Route::get('/article/{id}/edit', [ArticleController::class, "edit"]);
 Route::put('/article/{id}', [ArticleController::class, "update"]);
+
+Route::delete('/article/{id}', [ArticleController::class, "destroy"]);
