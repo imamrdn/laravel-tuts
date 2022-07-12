@@ -11,8 +11,8 @@ class ArticleController extends Controller
         return view('extra');
     }
 
-    public function show()
+    public function show($slug)
     {
-        return view('single');
+        return view('single', ['title' => $slug]);
     }
 }

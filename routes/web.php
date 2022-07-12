@@ -8,4 +8,4 @@ Route::get('/', function () {
 });
 
 Route::get('/article', [ArticleController::class, "index"]);
-Route::get('/article/1', [ArticleController::class, "show"]);
+Route::get('/article/{slug}', [ArticleController::class, "show"]);
