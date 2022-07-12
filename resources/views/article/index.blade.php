@@ -4,11 +4,17 @@
     <h1> Ini halaman article</h1>
 
     @foreach ($articles as $article)
-        <p><strong>Judul : {{ $article['title'] }}</strong></p>
-        <p>Isi : {{ $article['subject'] }}</p>
+
+        <div class="card mb-1">
+            <div class="card-body">
+                <p><strong>Judul : {{ $article['title'] }}</strong></p>
+                <p>{{ $article['subject'] }}</p>
+            </div>
+        </div>
+        
     @endforeach
 
-    <div>
+    <div class="my-3">
         {{ $articles->links() }}
     </div>
 
