@@ -23,8 +23,10 @@ class ArticleController extends Controller
         return view('article.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        # code...
+        dd($request);
+
+        // return view('article.create');
     }
 }
