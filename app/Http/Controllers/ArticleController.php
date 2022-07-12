@@ -25,8 +25,13 @@ class ArticleController extends Controller
 
     public function store(Request $request)
     {
-        dd($request);
+        //dd($request);
 
-        // return view('article.create');
+        $article = new Article;
+        $article->title = $request->title;
+        $article->subject = $request->subject;
+        $article->save();
+
+        return redirect('/article');
     }
 }
