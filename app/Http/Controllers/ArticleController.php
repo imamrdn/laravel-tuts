@@ -8,11 +8,11 @@ class ArticleController extends Controller
 {
     public function index()
     {
-        return view('extra');
+        return view('index');
     }
 
     public function show($slug)
     {
-        return view('single', ['title' => $slug]);
+        return view('single', compact('slug'));
     }
 }
