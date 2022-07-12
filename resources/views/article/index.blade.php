@@ -7,4 +7,9 @@
         <p><strong>Judul : {{ $article['title'] }}</strong></p>
         <p>Isi : {{ $article['subject'] }}</p>
     @endforeach
+
+    <div>
+        {{ $articles->links() }}
+    </div>
+
 @endsection
