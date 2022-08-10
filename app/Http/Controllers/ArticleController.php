@@ -31,22 +31,28 @@ class ArticleController extends Controller
 
     public function store(Request $request)
     {
-        //dd($request);
+        // dd($request->thumbnail);
 
         $request->validate([
+            'thumbnail' => 'mimes:png,jpg,svg,gif,jpeg',
             'title' => 'required|max:255|min:3',
             'subject' => 'required|min:10',
         ]);
 
-        // $article = new Article;
-        // $article->title = $request->title;
-        // $article->subject = $request->subject;
-        // $article->save();
+        $imgName = null;
+
+        if ($request->thumbnail) {
+            
+            $imgName = $request->thumbnail->getClientOriginalName() . '-' . time() . '.' . $request->thumbnail->extension();
+            
+            $request->thumbnail->move(public_path('image'), $imgName);
+        }
 
         Article::create([
             'title' => $request->title,
             'slug' => Str::slug($request->title, '-'),
             'subject' => $request->subject,
+            'thumbnail' => $imgName
         ]);
 
         return redirect('/article');
@@ -65,14 +71,19 @@ class ArticleController extends Controller
             'subject' => 'required|min:10',
         ]);
 
-        // $article = Article::find($id);
-        // $article->title = $request->title;
-        // $article->subject = $request->subject;
-        // $article->save();
+        $imgName = null;
+
+        if ($request->thumbnail) {
+            
+            $imgName = $request->thumbnail->getClientOriginalName() . '-' . time() . '.' . $request->thumbnail->extension();
+            
+            $request->thumbnail->move(public_path('image'), $imgName);
+        }
 
         Article::find($id)->update([
             'title' => $request->title,
             'subject' => $request->subject,
+            'thumbnail' => $imgName
         ]);
 
         return redirect('/article');

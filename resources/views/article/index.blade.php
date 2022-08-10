@@ -10,6 +10,7 @@
         @foreach ($articleChunk as $article)
             
         <div class="col card mb-1 ml-1 mr-1">
+            <img class="card-img-top" src="/image/{{$article->thumbnail}}" alt="">
             <div class="card-body">
                 <p><strong>{{ ucfirst($article->title) }}</strong></p>
                 <p>{{ $article->subject }}</p>

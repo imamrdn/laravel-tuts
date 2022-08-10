@@ -14,7 +14,7 @@ class AddThumbnailToArticles extends Migration
     public function up()
     {
         Schema::table('articles', function (Blueprint $table) {
-            //
+            $table->string('thumbnail')->nullable();
         });
     }
 
@@ -26,7 +26,7 @@ class AddThumbnailToArticles extends Migration
     public function down()
     {
         Schema::table('articles', function (Blueprint $table) {
-            //
+            $table->dropColumn(['thumbnail']);
         });
     }
 }
