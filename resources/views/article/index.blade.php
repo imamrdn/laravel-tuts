@@ -1,30 +1,30 @@
 @extends('layouts.app')
 
+@section('title', 'Halaman artikel')
+
 @section('content')
     <h1> Ini halaman article</h1>
 
-    @foreach ($articles as $article)
-
-        <div class="card mb-1">
+    @foreach ($articles->chunk(3) as $articleChunk)
+    <div class="row">
+        @foreach ($articleChunk as $article)
+            
+        <div class="col card mb-1 ml-1 mr-1">
             <div class="card-body">
                 <p><strong>{{ ucfirst($article->title) }}</strong></p>
                 <p>{{ $article->subject }}</p>
-                <a href="/article/{{$article->title}}" class="btn btn-info btn-sm">Baca</a>
-                <a href="/article/{{$article->id}}/edit" class="btn btn-info btn-sm">Edit</a>
-                
-                <form action="/article/{{$article->id}}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button class="btn btn-danger btn-sm">Hapus</button>
-                </form>
-            
+                <a href="/article/{{$article->slug}}" class="btn btn-info btn-sm stretched-link">Baca</a>
             </div>
         </div>
         
+        @endforeach
+    </div>    
     @endforeach
 
     <div class="my-3">
         {{ $articles->links() }}
     </div>
+
+    @include('layouts.footer')
 
 @endsection
